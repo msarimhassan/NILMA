@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Button, Input, Text3Xl, TextLg } from '@/components';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 // import { useAuth } from '@/hooks';
 // import { LoginSchema } from '@/validationSchemas';
@@ -14,9 +15,14 @@ const initialValues = {
   password: '',
 };
 const LoginForm = () => {
+  const router = useRouter();
+
   const [isLoading, setIsLoading] = useState(false);
 
-  const onSubmit = async () => {};
+  const onSubmit = async (crdentials) => {
+    console.log({ crdentials });
+    router.push('/dashboard');
+  };
 
   const { values, touched, errors, handleBlur, handleChange, handleSubmit } = useFormik({
     initialValues: initialValues,

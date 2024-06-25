@@ -70,12 +70,11 @@ const Input = ({
           placeholder={placeholder}
           className={`${textColor} border ${borderColor} focus:ring-0 ${focusColor}  outline-0 transition-all duration-300 h-12 ${padding} w-full disabled:opacity-50 ${background} ${borderRadius} placeholder:text-placeholder`}
         />
-        {!icon ? null : (
+        {icon && (
           <FontAwesomeIcon
-            {...iconProps}
             onClick={type === 'password' ? () => setIsPasswordVisible(!isPasswordVisible) : null}
             icon={icon}
-            className={`${iconProps?.className || ''} absolute right-3 cursor-pointer`}
+            className={`w-4 absolute right-3 cursor-pointer`}
           />
         )}
       </div>
