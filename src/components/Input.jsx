@@ -70,14 +70,14 @@ const Input = ({
           placeholder={placeholder}
           className={`${textColor} border ${borderColor} focus:ring-0 ${focusColor}  outline-0 transition-all duration-300 h-12 ${padding} w-full disabled:opacity-50 ${background} ${borderRadius} placeholder:text-placeholder`}
         />
-        {icon ? (
+        {!icon ? null : (
           <FontAwesomeIcon
             {...iconProps}
             onClick={type === 'password' ? () => setIsPasswordVisible(!isPasswordVisible) : null}
             icon={icon}
             className={`${iconProps?.className || ''} absolute right-3 cursor-pointer`}
           />
-        ) : null}
+        )}
       </div>
       {error && <TextError classes='mt-2' text={errorText} />}
     </div>
