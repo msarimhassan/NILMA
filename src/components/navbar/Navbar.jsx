@@ -1,13 +1,27 @@
+import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 function Navbar() {
+  const dropdownRef = useRef(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <nav className='bg-black p-4'>
+    <nav className='bg-black p-4' ref={dropdownRef}>
       <div className='container mx-auto flex justify-between items-center'>
         {/* Left Side - Logo and Links */}
         <div className='flex items-center'>
