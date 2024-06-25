@@ -1,0 +1,12 @@
+export { default as Text2Xl } from "./Text.2xl.jsx";
+export { default as Text3Xl } from "./Text.3xl.jsx";
+export { default as Text4Xl } from "./Text.4xl.jsx";
+export { default as Text5Xl } from "./Text.5xl.jsx";
+export { default as Text6Xl } from "./Text.6xl.jsx";
+export { default as Text7Xl } from "./Text.7xl.jsx";
+export { default as TextLg } from "./Text.lg.jsx";
+export { default as TextMd } from "./Text.md.jsx";
+export { default as TextSm } from "./Text.sm.jsx";
+export { default as TextXl } from "./Text.xl.jsx";
+export { default as TextError } from "./Text.error.jsx";
+export { default as TextLabel } from "./Text.label.jsx";
