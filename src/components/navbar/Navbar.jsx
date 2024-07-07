@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
-function Navbar() {
+const Navbar = () => {
   const dropdownRef = useRef(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const pathName = usePathname();
@@ -81,7 +81,7 @@ function Navbar() {
                 Settings
               </a>
               <Link href='/'>
-                <a className='block px-4 py-2 text-gray-800 hover:bg-gray-200'>Logout</a>
+                <div className='block px-4 py-2 text-gray-800 hover:bg-gray-200'>Logout</div>
               </Link>
             </div>
           )}
@@ -89,6 +89,6 @@ function Navbar() {
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;
