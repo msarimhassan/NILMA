@@ -4,3 +4,4 @@ export * from './text';
 export * from './spinners';
 export * from './navbar';
 export * from './footer';
+export * from './table';

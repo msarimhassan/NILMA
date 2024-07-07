@@ -1,7 +1,6 @@
 'use client';
 
-import { Navbar } from '@/components';
-import Footer from '@/components/footer/Footer';
+import { Navbar, Footer } from '@/components';
 
 const DashboardLayout = ({ children }) => {
   return (
