@@ -6,3 +6,4 @@ export * from './navbar';
 export * from './footer';
 export * from './table';
 export * from './cards';
+export * from './modals';
