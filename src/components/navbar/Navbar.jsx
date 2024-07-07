@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 function Navbar() {
   const dropdownRef = useRef(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const pathName = usePathname();
 
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -20,6 +22,8 @@ function Navbar() {
     };
   }, []);
 
+  const isActive = (route) => pathName === route;
+
   return (
     <nav className='bg-black p-4' ref={dropdownRef}>
       <div className='container mx-auto flex justify-between items-center'>
@@ -27,15 +31,34 @@ function Navbar() {
         <div className='flex items-center'>
           <div className='text-white text-xl font-bold mr-6'>Logo</div>
           <div className='hidden md:flex space-x-4'>
-            <Link href='/dashboard' className='text-gray-300 hover:text-white'>
-              Dashboard
+            <Link href='/dashboard'>
+              <div
+                className={`px-2 py-1  ${
+                  isActive('/dashboard') ? 'bg-white text-black  rounded' : 'text-gray-300'
+                }`}
+              >
+                Dashboard
+              </div>
             </Link>
 
-            <Link href='/oppurtunities' className='text-gray-300 hover:text-white'>
-              Oppurtunities
+            <Link href='/oppurtunities'>
+              <div
+                className={`px-2 py-1 ${
+                  isActive('/oppurtunities') ? 'bg-white text-black  rounded' : 'text-gray-300'
+                }`}
+              >
+                Opportunities
+              </div>
             </Link>
-            <Link href='/contracts' className='text-gray-300 hover:text-white'>
-              Contracts
+
+            <Link href='/contracts'>
+              <div
+                className={` px-2 py-1  ${
+                  isActive('/contracts') ? 'bg-white text-black  rounded' : 'text-gray-300'
+                }`}
+              >
+                Contracts
+              </div>
             </Link>
           </div>
         </div>
@@ -57,8 +80,8 @@ function Navbar() {
               <a href='#' className='block px-4 py-2 text-gray-800 hover:bg-gray-200 border-b'>
                 Settings
               </a>
-              <Link href='/' className='block px-4 py-2 text-gray-800 hover:bg-gray-200'>
-                Logout
+              <Link href='/'>
+                <a className='block px-4 py-2 text-gray-800 hover:bg-gray-200'>Logout</a>
               </Link>
             </div>
           )}
