@@ -5,3 +5,4 @@ export * from './spinners';
 export * from './navbar';
 export * from './footer';
 export * from './table';
+export * from './cards';

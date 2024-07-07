@@ -1,10 +1,7 @@
-
-
-
 import React, { useState } from 'react';
 import { Text4Xl } from '../text';
 
-const TableComponent = () => {
+const TableComponent = ({ title, columns, message }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState();
 
@@ -26,8 +23,6 @@ const TableComponent = () => {
 
   // const paginatedData = data.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage);
 
-  const columns = ['brand', 'campaign', 'action'];
-
   const data = [
     // { col1: 'Data 1', col2: 'Data 2', col3: 'Data 3' },
     // { col1: 'Data A', col2: 'Data B', col3: 'Data C' },
@@ -35,7 +30,7 @@ const TableComponent = () => {
 
   return (
     <div className='overflow-x-auto'>
-      <Text4Xl text={'Recent Activity'} classes={'font-bold'} />
+      <Text4Xl text={title} classes={'font-bold'} />
       <table className='min-w-full divide-y divide-gray-200 mt-5'>
         <thead>
           <tr>
@@ -48,19 +43,6 @@ const TableComponent = () => {
                 {column}
               </th>
             ))}
-
-            {/* <th
-              scope='col'
-              className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b'
-            >
-              Header 2
-            </th>
-            <th
-              scope='col'
-              className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b'
-            >
-              Header 3
-            </th> */}
           </tr>
         </thead>
         <tbody className='divide-y divide-gray-200'>
@@ -77,7 +59,7 @@ const TableComponent = () => {
           ) : (
             <tr>
               <td colSpan='3' className='px-6 py-4  text-sm text-gray-500'>
-                Your recent activity, messages, and notifications will display here.
+                {message}
               </td>
             </tr>
           )}

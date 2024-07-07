@@ -27,16 +27,16 @@ function Navbar() {
         <div className='flex items-center'>
           <div className='text-white text-xl font-bold mr-6'>Logo</div>
           <div className='hidden md:flex space-x-4'>
-            <a href='#' className='text-gray-300 hover:text-white'>
+            <Link href='/dashboard' className='text-gray-300 hover:text-white'>
               Dashboard
-            </a>
+            </Link>
 
-            <a href='#' className='text-gray-300 hover:text-white'>
+            <Link href='/oppurtunities' className='text-gray-300 hover:text-white'>
               Oppurtunities
-            </a>
-            <a href='#' className='text-gray-300 hover:text-white'>
+            </Link>
+            <Link href='/contracts' className='text-gray-300 hover:text-white'>
               Contracts
-            </a>
+            </Link>
           </div>
         </div>
 
