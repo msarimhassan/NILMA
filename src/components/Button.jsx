@@ -1,7 +1,7 @@
 import React from 'react';
 import { SpinnerSmall } from './spinners';
 import { TextMd } from './text';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Button = ({
   width = 'w-28',
@@ -17,8 +17,8 @@ const Button = ({
   borderRadius = '',
   isDisabled = false,
   isLoading = false,
-  type = 'button',w
-  // icon = "FaCheckCircle",
+  type = 'button',
+  icon = null,
 }) => {
   return (
     <button
@@ -29,7 +29,15 @@ const Button = ({
       } disabled:opacity-50 flex gap-2 font-medium items-center justify-center ${borderRadius}`}
       disabled={isDisabled}
     >
-      {isLoading ? <SpinnerSmall /> : <TextMd text={text} color={colorText} />}
+      {isLoading ? (
+        <SpinnerSmall />
+      ) : (
+        <div className='flex items-center'>
+          {icon ? <FontAwesomeIcon icon={icon} className='w-4 text-white mr-1' /> : null}
+
+          <TextMd text={text} color={colorText} />
+        </div>
+      )}
     </button>
   );
 };
