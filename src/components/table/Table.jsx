@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Text4Xl } from '../text';
 
-const TableComponent = ({ title, columns, message }) => {
+const TableComponent = ({ title, columns, message, showFilter = false }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState();
 
@@ -30,7 +30,26 @@ const TableComponent = ({ title, columns, message }) => {
 
   return (
     <div className='overflow-x-auto'>
-      <Text4Xl text={title} classes={'font-bold'} />
+      <div className='flex justify-between items-center'>
+        <Text4Xl text={title} classes={'font-bold'} />
+        {showFilter ? (
+          <div className='flex space-x-4'>
+            <label className='flex items-center'>
+              <input type='radio' value='All' className='form-radio' />
+              <span className='ml-2'>All</span>
+            </label>
+            <label className='flex items-center'>
+              <input type='radio' value='Closed' className='form-radio' />
+              <span className='ml-2'>Closed</span>
+            </label>
+            <label className='flex items-center'>
+              <input type='radio' value='Open' className='form-radio' />
+              <span className='ml-2'>Open</span>
+            </label>
+          </div>
+        ) : null}
+      </div>
+
       <table className='min-w-full divide-y divide-gray-200 mt-5'>
         <thead>
           <tr>
