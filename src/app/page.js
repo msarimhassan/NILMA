@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Button, Input, Text3Xl, TextLg } from '@/components';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { Routes } from '@/common';
 
 // import { useAuth } from '@/hooks';
 // import { LoginSchema } from '@/validationSchemas';
@@ -87,6 +88,13 @@ const LoginForm = () => {
             />
           </div>
         </div>
+
+        <p className='mt-2'>
+          Dont have an account?{' '}
+          <span className='font-bold cursor-pointer' onClick={() => router.push(Routes.signup)}>
+            Signup
+          </span>
+        </p>
       </div>
 
       {/* Image */}
