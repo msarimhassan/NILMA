@@ -169,7 +169,9 @@ const RegisterForm = ({ title, setStep }) => {
         <Button
           text={'Back'}
           isRounded
-          classes='mr-1'
+          isBordered
+          colorText='black'
+          classes='mr-1 bg-white text-black'
           onClick={() => setStep((prev) => prev - 1)}
         />
         <Button text={'Signup'} isRounded classes='ml-1' />
@@ -317,6 +319,18 @@ const Signup = () => {
 
         {step == 2 && mode == 'icon-brand' ? (
           <RegisterForm setStep={setStep} title={'Brand'} />
+        ) : null}
+
+        {step == 3 && iconAthlete == 'professional' ? (
+          <RegisterForm title={'Professional Athlete'} setStep={setStep} />
+        ) : null}
+
+        {step == 3 && iconAthlete == 'collegiate' ? (
+          <RegisterForm title={'College Athlete'} setStep={setStep} />
+        ) : null}
+
+        {step == 3 && iconAthlete == 'high-school' ? (
+          <RegisterForm title={'High School Athlete'} setStep={setStep} />
         ) : null}
       </div>
     </div>
