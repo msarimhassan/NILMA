@@ -56,6 +56,15 @@ const Navbar = () => {
                   Dashboard
                 </div>
               </Link>
+              <Link href='/athletes'>
+                <div
+                  className={`px-2 py-1  ${
+                    isActive('/athletes') ? 'bg-white text-black  rounded' : 'text-gray-300'
+                  }`}
+                >
+                  Athletes
+                </div>
+              </Link>
 
               <Link href='/oppurtunities'>
                 <div
