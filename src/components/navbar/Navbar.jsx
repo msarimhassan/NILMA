@@ -66,6 +66,16 @@ const Navbar = () => {
                 </div>
               </Link>
 
+              <Link href='/compaigns'>
+                <div
+                  className={` px-2 py-1  ${
+                    isActive('/compaigns') ? 'bg-white text-black  rounded' : 'text-gray-300'
+                  }`}
+                >
+                  Compaigns
+                </div>
+              </Link>
+
               <Link href='/oppurtunities'>
                 <div
                   className={`px-2 py-1 ${
